@@ -1,0 +1,38 @@
+<mvc:View controllerName="com.syonchev.crud_demo.controller.CrudDemo" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Shell id="shell">
+		<App id="app">
+			<Page id="page" title="CRUD Operations">
+				<content>
+					<VBox id="vboxid">
+						<items>
+							<HBox>
+								<items>
+									<Button id="cbtn" press="oDataCall" text="Create"></Button>
+									<Button id="rbtn" press="oDataCall" text="Read"></Button>
+									<Button id="ubtn" press="oDataCall" text="Update"></Button>
+									<Button id="dbtn" press="oDataCall" text="Delete"></Button>
+								</items>
+							</HBox>
+							<HBox>
+								<items>
+									<Input id="uniqueid" placeholder="Id"/>
+									<Input id="nameid" placeholder="Name"/>
+									<Input id="emailid" placeholder="Email"/>
+									<Input id="mobid" placeholder="Mobile"/>
+								</items>
+							</HBox>
+							<HBox>
+								<items>
+									<List id="userdatatable" headerText="User Data" items="{ path: '/UserdataSet' }">
+										<StandardListItem title="{Id} - {Name}" description="{Email} - {Mobile}" icon="sap-icon://employee" />
+									</List>
+								</items>
+							</HBox>
+						</items>
+					</VBox>
+				</content>
+			</Page>
+		</App>
+	</Shell>
+</mvc:View>
