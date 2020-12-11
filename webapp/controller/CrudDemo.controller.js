@@ -1,14 +1,18 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/base/Event",
-	"sap/ui/commons/MessageBox"
-], function (Controller, Event, MessageBox) {
+	"sap/ui/commons/MessageBox",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function (Controller, Event, MessageBox, Filter, FilterOperator) {
 	"use strict";
 
 	return Controller.extend("com.syonchev.crud_demo.controller.CrudDemo", {
-		onInit: function () {},
+		onInit: function () {
+		},
 		oDataCall: function (oEvent) {
 			var myModel = this.getView().getModel();
+			myModel.refresh();
 			if ("Create" == oEvent.oSource.mProperties.text) {
 				var obj = {
 					Id: this.getView().byId("uniqueid").getValue(),
@@ -26,16 +30,18 @@ sap.ui.define([
 						MessageBox.alert(errRes.error.message.value);
 					}
 				});
-			} else if ('Read' == oEvent.oSource.mProperties.text) {
-				var id = this.getView().byId("uniqueid").getValue();
-				var readPath;
-				if (!id) readPath = "/UserdataSet";
-				else readPath = "/UserdataSet?$filter(Id eq'" + id + "')";
-				myModel.read(readPath, {
-					success: function (oData, oResponse) {},
-					error: function (err) {}
-				});
-			} else if ('Update' == oEvent.oSource.mProperties.text) {
+			} 
+			// else if ('Filter By Id' == oEvent.oSource.mProperties.text) {
+			// 	var id = this.getView().byId("uniqueid").getValue();
+			// 	var readPath;
+			// 	if (!id) readPath = "/UserdataSet";
+			// 	else readPath = "/UserdataSet?$filter(Id eq'" + id + "')";
+			// 	myModel.read(readPath, {
+			// 		success: function (oData, oResponse) {},
+			// 		error: function (err) {}
+			// 	});
+			// } 
+			else if ('Update' == oEvent.oSource.mProperties.text) {
 				var updatingObj = {
 					Id: this.getView().byId("uniqueid").getValue(),
 					Name: this.getView().byId("nameid").getValue(),

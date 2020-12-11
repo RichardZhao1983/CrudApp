@@ -7,25 +7,29 @@
 					<VBox id="vboxid">
 						<items>
 							<HBox>
-								<items>
-									<Button id="cbtn" press="oDataCall" text="Create"></Button>
-									<Button id="rbtn" press="oDataCall" text="Read"></Button>
-									<Button id="ubtn" press="oDataCall" text="Update"></Button>
-									<Button id="dbtn" press="oDataCall" text="Delete"></Button>
-								</items>
+								<Panel headerText="Actions">
+									<FlexBox alignItems="Start" justifyContent="Center">
+										<items>
+											<Button id="cbtn" press="oDataCall" text="Create" icon="sap-icon://create" type="Accept"></Button>
+											<Button id="ubtn" press="oDataCall" text="Update" icon="sap-icon://edit" type="Default"></Button>
+											<Button id="dbtn" press="oDataCall" text="Delete" icon="sap-icon://delete" type="Reject"></Button>
+											<!--<Button id="rbtn" press="oDataCall" text="Filter By Id" icon="sap-icon://filter" type="Ghost"></Button>-->
+										</items>
+									</FlexBox>
+								</Panel>
 							</HBox>
-							<HBox>
+							<VBox>
 								<items>
-									<Input id="uniqueid" placeholder="Id"/>
-									<Input id="nameid" placeholder="Name"/>
-									<Input id="emailid" placeholder="Email"/>
-									<Input id="mobid" placeholder="Mobile"/>
+									<Input id="uniqueid" placeholder="Id" width="30em"/>
+									<Input id="nameid" placeholder="Name" width="30em"/>
+									<Input id="emailid" placeholder="Email" width="30em"/>
+									<Input id="mobid" placeholder="Mobile" width="30em"/>
 								</items>
-							</HBox>
+							</VBox>
 							<HBox>
 								<items>
 									<List id="userdatatable" headerText="User Data" items="{ path: '/UserdataSet' }">
-										<StandardListItem title="{Id} - {Name}" description="{Email} - {Mobile}" icon="sap-icon://employee" />
+										<StandardListItem title="{Id} - {Name}" description="{Email} - {Mobile}" icon="sap-icon://employee"/>
 									</List>
 								</items>
 							</HBox>
