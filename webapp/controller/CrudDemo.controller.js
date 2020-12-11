@@ -8,8 +8,7 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("com.syonchev.crud_demo.controller.CrudDemo", {
-		onInit: function () {
-		},
+		onInit: function () {},
 		oDataCall: function (oEvent) {
 			var myModel = this.getView().getModel();
 			myModel.refresh();
@@ -30,18 +29,7 @@ sap.ui.define([
 						MessageBox.alert(errRes.error.message.value);
 					}
 				});
-			} 
-			// else if ('Filter By Id' == oEvent.oSource.mProperties.text) {
-			// 	var id = this.getView().byId("uniqueid").getValue();
-			// 	var readPath;
-			// 	if (!id) readPath = "/UserdataSet";
-			// 	else readPath = "/UserdataSet?$filter(Id eq'" + id + "')";
-			// 	myModel.read(readPath, {
-			// 		success: function (oData, oResponse) {},
-			// 		error: function (err) {}
-			// 	});
-			// } 
-			else if ('Update' == oEvent.oSource.mProperties.text) {
+			} else if ('Update' == oEvent.oSource.mProperties.text) {
 				var updatingObj = {
 					Id: this.getView().byId("uniqueid").getValue(),
 					Name: this.getView().byId("nameid").getValue(),
