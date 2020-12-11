@@ -1,42 +1,85 @@
 <mvc:View controllerName="com.syonchev.crud_demo.controller.CrudDemo" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Shell id="shell">
-		<App id="app">
-			<Page id="page" title="CRUD Operations">
-				<content>
-					<VBox id="vboxid">
-						<items>
-							<HBox>
-								<Panel headerText="Actions">
-									<FlexBox alignItems="Start" justifyContent="Center">
-										<items>
-											<Button id="cbtn" press="oDataCall" text="Create" icon="sap-icon://create" type="Accept"></Button>
-											<Button id="ubtn" press="oDataCall" text="Update" icon="sap-icon://edit" type="Default"></Button>
-											<Button id="dbtn" press="oDataCall" text="Delete" icon="sap-icon://delete" type="Reject"></Button>
-											<!--<Button id="rbtn" press="oDataCall" text="Filter By Id" icon="sap-icon://filter" type="Ghost"></Button>-->
-										</items>
-									</FlexBox>
-								</Panel>
-							</HBox>
-							<VBox>
-								<items>
-									<Input id="uniqueid" placeholder="Id" width="30em"/>
-									<Input id="nameid" placeholder="Name" width="30em"/>
-									<Input id="emailid" placeholder="Email" width="30em"/>
-									<Input id="mobid" placeholder="Mobile" width="30em"/>
-								</items>
-							</VBox>
-							<HBox>
-								<items>
-									<List id="userdatatable" headerText="User Data" items="{ path: '/UserdataSet' }">
-										<StandardListItem title="{Id} - {Name}" description="{Email} - {Mobile}" icon="sap-icon://employee"/>
-									</List>
-								</items>
-							</HBox>
-						</items>
-					</VBox>
-				</content>
-			</Page>
-		</App>
+		<SplitApp id="app">
+			<detailPages>
+				<Page id="page" title="Operations">
+					<content>
+						<VBox id="vboxid" class="sapUiResponsiveMargin" alignItems="Center">
+							<items>
+								<HBox>
+									<items>
+										<Button id="cbtn" press="oDataCall" text="Create" icon="sap-icon://create" type="Accept"></Button>
+										<Button id="ubtn" press="oDataCall" text="Update" icon="sap-icon://edit" type="Default"></Button>
+										<Button id="dbtn" press="oDataCall" text="Delete" icon="sap-icon://delete" type="Reject"></Button>
+										<Button id="rbtn" press="oDataCall" text="Filter By Id" icon="sap-icon://filter" type="Ghost"></Button>
+										<Input id="filterid" placeholder="Filter Id" width="5em"/>
+									</items>
+								</HBox>
+								<VBox>
+									<items>
+										<Input id="uniqueid" placeholder="Id" width="30em"/>
+										<Input id="nameid" placeholder="Name" width="30em"/>
+										<Input id="emailid" placeholder="Email" width="30em"/>
+										<Input id="mobid" placeholder="Mobile" width="30em"/>
+									</items>
+								</VBox>
+							</items>
+						</VBox>
+					</content>
+				</Page>
+			</detailPages>
+			<masterPages>
+				<Page id="page2" title="User Data">
+					<content>
+						<VBox id="vboxid2" class="sapUiResponsiveMargin" alignItems="Center">
+							<items>
+								<HBox>
+									<items>
+										<List id="userdatatable" items="{ path: '/UserdataSet' }">
+											<StandardListItem title="{Id} - {Name}" description="{Email} - {Mobile}" icon="sap-icon://employee"/>
+										</List>
+									</items>
+								</HBox>
+							</items>
+						</VBox>
+					</content>
+				</Page>
+			</masterPages>
+		</SplitApp>
+		<!--<App id="app">-->
+		<!--	<Page id="page" title="CRUD Operations">-->
+		<!--		<content>-->
+		<!--			<VBox id="vboxid" class="sapUiResponsiveMargin" alignItems="Center">-->
+		<!--				<items>-->
+		<!--					<HBox>-->
+		<!--						<items>-->
+		<!--							<Button id="cbtn" press="oDataCall" text="Create" icon="sap-icon://create" type="Accept"></Button>-->
+		<!--							<Button id="ubtn" press="oDataCall" text="Update" icon="sap-icon://edit" type="Default"></Button>-->
+		<!--							<Button id="dbtn" press="oDataCall" text="Delete" icon="sap-icon://delete" type="Reject"></Button>-->
+		<!--							<Button id="rbtn" press="oDataCall" text="Filter By Id" icon="sap-icon://filter" type="Ghost"></Button>-->
+		<!--							<Input id="filterid" placeholder="Filter Id" width="5em"/>-->
+		<!--						</items>-->
+		<!--					</HBox>-->
+		<!--					<VBox>-->
+		<!--						<items>-->
+		<!--							<Input id="uniqueid" placeholder="Id" width="30em"/>-->
+		<!--							<Input id="nameid" placeholder="Name" width="30em"/>-->
+		<!--							<Input id="emailid" placeholder="Email" width="30em"/>-->
+		<!--							<Input id="mobid" placeholder="Mobile" width="30em"/>-->
+		<!--						</items>-->
+		<!--					</VBox>-->
+		<!--					<HBox>-->
+		<!--						<items>-->
+		<!--							<List id="userdatatable" headerText="User Data" items="{ path: '/UserdataSet' }">-->
+		<!--								<StandardListItem title="{Id} - {Name}" description="{Email} - {Mobile}" icon="sap-icon://employee"/>-->
+		<!--							</List>-->
+		<!--						</items>-->
+		<!--					</HBox>-->
+		<!--				</items>-->
+		<!--			</VBox>-->
+		<!--		</content>-->
+		<!--	</Page>-->
+		<!--</App>-->
 	</Shell>
 </mvc:View>
